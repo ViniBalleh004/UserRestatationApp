@@ -33,6 +33,19 @@
         android:layout_height="wrap_content"
         android:hint="Numero de Telefone">
     </EditText>
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver Relatório">
 
+    </Button>
 
+    <Button
+        android:id="@+id/buttonReport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver Relatório">
+
+    </Button>
 </LinearLayout>
