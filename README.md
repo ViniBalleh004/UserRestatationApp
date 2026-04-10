@@ -9,22 +9,25 @@ Este é um aplicativo Android para cadastro e listagem de usuários, utilizando 
 - **Interface UserDao**: Criação do Data Access Object (DAO) com métodos para:
     - `insert(User user)`: Inserir novos usuários.
     - `getAllUsers()`: Buscar todos os usuários cadastrados.
-- **UserDatabase**: Estrutura inicial criada para a configuração do banco de dados Room.
+- **UserDatabase (Singleton)**: Implementação completa da classe de banco de dados:
+    - Uso do padrão **Singleton** para garantir uma única instância do banco.
+    - Configuração de migração destrutiva (`fallbackToDestructiveMigration`).
+    - Habilitação de consultas na thread principal (`allowMainThreadQueries`) para simplificação inicial.
 
 ### 2. Interface e Navegação
 - **ReportActivity**: Criação da atividade destinada à exibição dos relatórios de usuários.
 - **Layouts**: 
-    - `activity_main.xml`: Layout principal para entrada de dados (em desenvolvimento).
-    - `activity_report.xml`: Layout base para a listagem de usuários.
+    - `activity_main.xml`: Estrutura inicial em `LinearLayout` preparada para formulário.
+    - `activity_report.xml`: Layout com título e botão de retorno já configurados.
 
 ## Tecnologias Utilizadas
 - **Linguagem**: Java
 - **Banco de Dados**: Room Database (SQLite)
-- **UI**: XML / ConstraintLayout / LinearLayout
+- **UI**: XML / LinearLayout / Material Design
 
 ---
 
 ## Próximos Passos
-- Finalizar a implementação do `UserDatabase` (Singleton).
-- Implementar a lógica de salvamento na `MainActivity`.
-- Configurar o `RecyclerView` na `ReportActivity` para exibir os dados.
+- Implementar a lógica de salvamento (captura de dados dos campos e inserção no banco) na `MainActivity`.
+- Configurar o `RecyclerView` na `ReportActivity` para listar os usuários do banco.
+- Implementar a navegação entre as telas.
