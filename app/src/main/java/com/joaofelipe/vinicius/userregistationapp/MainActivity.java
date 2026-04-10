@@ -30,10 +30,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main); // Define o layout da tela
 
         // Inicializa os campos de entrada de dados do layout
-        editTextName = findViewById(R.id.editTextName);
-        editTextCPF = findViewById(R.id.editTextCPF);
-        editTextEmail = findViewById(R.id.editTextEmail);
-        editTextPhone = findViewById(R.id.editTextPhone);
+        editTextName = findViewById(R.id.edtidTextname);
+        editTextCPF = findViewById(R.id.edtidTextCPF);
+        editTextEmail = findViewById(R.id.edtidTextEmail);
+        editTextPhone = findViewById(R.id.edtidTextPhone);
 
         // Inicializa os botões do layout
         Button buttonSave = findViewById(R.id.buttonSave);
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Configuração do banco de dados usando Room
         UserDatabase db = Room.databaseBuilder(getApplicationContext(),
-                UserDatabase.class, "user-database").allowMainThreadQueries().build();
+                UserDatabase.c/lass, "user-database").allowMainThreadQueries().build();
         userDao = db.userDao(); // Obtém uma instância do DAO para interagir com os dados
 
         // Configura o botão de salvar usuário
