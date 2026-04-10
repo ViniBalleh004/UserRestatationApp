@@ -10,6 +10,8 @@ import androidx.room.Room;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.List;
+
 public class ReportActivity extends AppCompatActivity {
     // Campo de texto onde os dados do banco serão exibidos
     private TextView textViewReport;
@@ -35,6 +37,20 @@ public class ReportActivity extends AppCompatActivity {
 
         UserDatabase db = Room.databaseBuilder(getApplicationContext(), UserDatabase.class, "user-database").allowMainThreadsQueries().Build();
 
+        //Obtém o objeto DAO(Data Acess Obeject) que contém as queries SQL
+        UserDao userDao = db.userDao();
+        //Recupera todos os usuários salvos no BD e armazena numa lista
+
+        List<User> userList = userDao.getAllUsers();
+        //StringBuilder: forma eficiente de construir uma String longa dentro de um laço (loop)
+        StringBuilder report = new StringBuilder();
+
+        //Loop "for-each" para percorrer cada obejto User dentro da listas reparada
+        for (User user : userList){
+            Report.append("Nome: ").append(user.getName()).append("\n").append("CPF: ").append(user.getCpf()).append("\n\n");
+        }
+        // Exibe o relatório final montado na TextViem da tela
+        textViewReport.setText(report.toString());
     }
 
     //Metodo responsavel pela navegação entre telas do app
